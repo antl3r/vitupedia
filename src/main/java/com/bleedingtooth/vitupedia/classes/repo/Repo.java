@@ -1,3 +1,5 @@
+package com.bleedingtooth.vitupedia.classes.repo;
+
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
