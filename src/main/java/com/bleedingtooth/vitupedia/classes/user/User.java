@@ -1,5 +1,7 @@
 package com.bleedingtooth.vitupedia.classes.user;
 
+import com.bleedingtooth.vitupedia.util.Utils;
+
 /**
  * Represents a user; the base class of various other user types.
  */
@@ -15,8 +17,11 @@ public abstract class User {
      * @param password The password.
      */
     public User(String username, String password) {
-        setUsername(username);
-        setPassword(password);
+        Utils.requireStringNonEmpty(username, "username");
+        Utils.requireStringNonEmpty(password, "password");
+
+        this.username = username;
+        this.password = password;
     }
 
     /**
@@ -27,8 +32,11 @@ public abstract class User {
      * @param balance  The balance.
      */
     public User(String username, String password, long balance) {
-        setUsername(username);
-        setPassword(password);
+        Utils.requireStringNonEmpty(username, "username");
+        Utils.requireStringNonEmpty(password, "password");
+
+        this.username = username;
+        this.password = password;
         this.balance = balance;
     }
 
@@ -45,8 +53,7 @@ public abstract class User {
     }
 
     public void setUsername(String username) {
-        if (username.isEmpty())
-            throw new IllegalArgumentException("Username cannot be empty.");
+        Utils.requireStringNonEmpty(username, "username");
 
         this.username = username;
     }
@@ -56,8 +63,7 @@ public abstract class User {
     }
 
     public void setPassword(String password) {
-        if (password.isEmpty())
-            throw new IllegalArgumentException("Password cannot be empty.");
+        Utils.requireStringNonEmpty(password, "password");
 
         this.password = password;
     }
