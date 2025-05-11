@@ -8,11 +8,24 @@ public abstract class User {
     private String password;
     private long balance = 0;
 
+    /**
+     * Create a new user with a username and password. Balance is set to 0.
+     * 
+     * @param username The username.
+     * @param password The password.
+     */
     public User(String username, String password) {
         setUsername(username);
         setPassword(password);
     }
 
+    /**
+     * Create a new user with a username, password and balance.
+     * 
+     * @param username The username.
+     * @param password The password.
+     * @param balance  The balance.
+     */
     public User(String username, String password, long balance) {
         setUsername(username);
         setPassword(password);
@@ -39,13 +52,13 @@ public abstract class User {
     }
 
     public String getPassword() {
-        if (password.isEmpty())
-            throw new IllegalArgumentException("Password cannot be empty.");
-
         return password;
     }
 
     public void setPassword(String password) {
+        if (password.isEmpty())
+            throw new IllegalArgumentException("Password cannot be empty.");
+
         this.password = password;
     }
 }
